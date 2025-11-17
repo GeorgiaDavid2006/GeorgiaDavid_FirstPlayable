@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace GeorgiaDavid_FirstPlayable
 {
@@ -10,7 +11,9 @@ namespace GeorgiaDavid_FirstPlayable
     {
         static void Main(string[] args)
         {
-
+            string path = @"c:\temp\MyTest.txt";
+             
+               
         }
     }
 }
