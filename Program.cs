@@ -11,9 +11,10 @@ namespace GeorgiaDavid_FirstPlayable
     {
         static void Main(string[] args)
         {
-            string path = @"c:\temp\MyTest.txt";
-             
-               
+            string path = @"c:\temp\MapData.txt";
+
+            string readText = File.ReadAllText(path);
+            
         }
     }
 }
