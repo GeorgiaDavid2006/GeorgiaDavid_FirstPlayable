@@ -17,9 +17,9 @@ namespace GeorgiaDavid_FirstPlayable
 
             map = File.ReadAllLines(path);
 
-            DisplayMap();
+            DrawMap();
         }
-        static void DisplayMap()
+        static void DrawMap()
         {
             for (int border = 0; border < map[0].Length + 2; border++)
             {
@@ -57,6 +57,16 @@ namespace GeorgiaDavid_FirstPlayable
                 }
             }
             Console.WriteLine();
+
+        }
+
+        static void DrawPlayer()
+        {
+            
+        }
+
+        static void DrawEnemy()
+        {
 
         }
     }
