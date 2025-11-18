@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Data;
 
 namespace GeorgiaDavid_FirstPlayable
 {
@@ -11,9 +12,12 @@ namespace GeorgiaDavid_FirstPlayable
     {
         static void Main(string[] args)
         {
-            string path = @"c:\temp\MapData.txt";
+            string path = @"Map.txt";
+            
+            string[] map = File.ReadAllLines(path);
 
-            string readText = File.ReadAllText(path);
+            char c = map[0][0];
+
             
         }
     }
