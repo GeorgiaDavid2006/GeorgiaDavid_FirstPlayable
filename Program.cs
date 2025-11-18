@@ -11,6 +11,18 @@ namespace GeorgiaDavid_FirstPlayable
     internal class Program
     {
         static string[] map;
+
+        static int horizontalInput;
+        static int verticalInput;
+
+        static int playerPosX;
+        static int playerPosY;
+
+        static int enemyPosX;
+        static int enemyPosY;
+
+        static bool isGameActive;
+
         static void Main(string[] args)
         {
             string path = @"Map.txt";
@@ -18,6 +30,8 @@ namespace GeorgiaDavid_FirstPlayable
             map = File.ReadAllLines(path);
 
             DrawMap();
+
+            DrawPlayer();
         }
         static void DrawMap()
         {
@@ -62,12 +76,37 @@ namespace GeorgiaDavid_FirstPlayable
 
         static void DrawPlayer()
         {
-            
+            Console.SetCursorPosition(playerPosX, playerPosY);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("O");
         }
 
         static void DrawEnemy()
         {
+            Console.SetCursorPosition(enemyPosX, enemyPosY);
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("O");
+        }
 
+        static void PlayerInput()
+        {
+            horizontalInput = 0;
+            verticalInput = 0;
+
+            if (!Console.KeyAvailable)
+            {
+                return;
+            }
+
+            ConsoleKeyInfo inputKey = Console.ReadKey(true);
+
+            if (inputKey.Key == ConsoleKey.A) horizontalInput -= 1;
+
+            if (inputKey.Key == ConsoleKey.D) horizontalInput += 1;
+
+            if (inputKey.Key == ConsoleKey.W) verticalInput -= 1;
+
+            if (inputKey.Key == ConsoleKey.S) verticalInput += 1;
         }
     }
 }
