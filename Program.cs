@@ -10,15 +10,54 @@ namespace GeorgiaDavid_FirstPlayable
 {
     internal class Program
     {
+        static string[] map;
         static void Main(string[] args)
         {
             string path = @"Map.txt";
-            
-            string[] map = File.ReadAllLines(path);
 
-            char c = map[0][0];
+            map = File.ReadAllLines(path);
 
-            
+            DisplayMap();
+        }
+        static void DisplayMap()
+        {
+            for (int border = 0; border < map[0].Length + 2; border++)
+            {
+                if (border == 0 || border == map[0].Length + 1)
+                {
+                    Console.Write("+");
+                }
+                else
+                {
+                    Console.Write("-");
+                }
+            }
+
+            Console.Write("\n");
+
+            for (int row = 0; row < map.GetLength(0); row++)
+            {
+                Console.Write("|");
+                for (int column = 0; column < map[0].Length; column++)
+                {
+                    Console.Write(map[row][column]);
+                }
+                Console.Write("|");
+                Console.WriteLine();
+            }
+            for (int border = 0; border < map[0].Length + 2; border++)
+            {
+                if (border == 0 || border == map[0].Length + 1)
+                {
+                    Console.Write("+");
+                }
+                else
+                {
+                    Console.Write("-");
+                }
+            }
+            Console.WriteLine();
+
         }
     }
 }
