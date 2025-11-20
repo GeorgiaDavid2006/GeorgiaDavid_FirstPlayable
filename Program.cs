@@ -30,8 +30,6 @@ namespace GeorgiaDavid_FirstPlayable
             map = File.ReadAllLines(path);
 
             DrawMap();
-
-            DrawPlayer();
         }
         static void DrawMap()
         {
@@ -90,8 +88,6 @@ namespace GeorgiaDavid_FirstPlayable
 
         static void PlayerInput()
         {
-            horizontalInput = 0;
-            verticalInput = 0;
 
             if (!Console.KeyAvailable)
             {
@@ -100,13 +96,13 @@ namespace GeorgiaDavid_FirstPlayable
 
             ConsoleKeyInfo inputKey = Console.ReadKey(true);
 
-            if (inputKey.Key == ConsoleKey.A) horizontalInput -= 1;
+            if (inputKey.Key == ConsoleKey.A) playerPosX -= 1;
 
-            if (inputKey.Key == ConsoleKey.D) horizontalInput += 1;
+            if (inputKey.Key == ConsoleKey.D) playerPosX += 1;
 
-            if (inputKey.Key == ConsoleKey.W) verticalInput -= 1;
+            if (inputKey.Key == ConsoleKey.W) playerPosY -= 1;
 
-            if (inputKey.Key == ConsoleKey.S) verticalInput += 1;
+            if (inputKey.Key == ConsoleKey.S) playerPosY += 1;
         }
     }
 }
