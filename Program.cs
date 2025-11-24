@@ -52,7 +52,6 @@ namespace GeorgiaDavid_FirstPlayable
                 Console.SetCursorPosition(0, 0);
                 PlayerInput();
                 DrawMap();
-                ShowHUD();
                 DrawPlayer();
                 Thread.Sleep(100);
             }
