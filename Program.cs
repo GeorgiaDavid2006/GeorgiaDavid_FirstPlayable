@@ -16,7 +16,7 @@ namespace GeorgiaDavid_FirstPlayable
         static int playerPosX = 1;
         static int playerPosY = 1;
 
-        static int[] goldPositions;
+        static List<(int, int)> goldPositions = new List<(int, int)>();
 
         static int gold;
 
@@ -55,6 +55,7 @@ namespace GeorgiaDavid_FirstPlayable
                 ShowHUD();
                 DrawPlayer();
                 DrawEnemy();
+                DrawGold();
                 Thread.Sleep(100);
             }
 
@@ -262,13 +263,20 @@ namespace GeorgiaDavid_FirstPlayable
                 int randomPosX = randomPos.Next(minGoldPosX, maxGoldPosX);
                 int randomPosY = randomPos.Next(minGoldPosY, maxGoldPosY);
 
-                
+                (int, int) spawnPos = (randomPosX, randomPosY);
+
+                goldPositions.Add(spawnPos);
             }
         }
 
         static void DrawGold()
         {
-              
+           for(int g = 0; g < goldPositions.Count; g++)
+            {
+                Console.SetCursorPosition(goldPositions[g].Item1, goldPositions[g].Item2);
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("#");
+            }
         }
 
         static void GameOver()
