@@ -34,6 +34,7 @@ namespace GeorgiaDavid_FirstPlayable
 
         static bool isGameActive = true;
         static bool isEnemyAlive = true;
+        static Random randomPos = new Random();
 
         static void Main(string[] args)
         {
@@ -258,8 +259,6 @@ namespace GeorgiaDavid_FirstPlayable
         {
             for (int g = 0; g < amount; g++)
             {
-                Random randomPos = new Random();
-
                 int randomPosX = randomPos.Next(minGoldPosX, maxGoldPosX);
                 int randomPosY = randomPos.Next(minGoldPosY, maxGoldPosY);
 
