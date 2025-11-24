@@ -16,13 +16,14 @@ namespace GeorgiaDavid_FirstPlayable
         static int playerPosX = 1;
         static int playerPosY = 1;
 
-        static int enemyPosX = 10;
+        static int enemyPosX = 30;
         static int enemyPosY = 1;
 
         static int playerHealth = 5;
         static int enemyHealth = 5;
 
         static bool isGameActive = true;
+        static bool isEnemyAlive = true;
 
         static void Main(string[] args)
         {
@@ -35,19 +36,25 @@ namespace GeorgiaDavid_FirstPlayable
             DrawPlayer();
             DrawEnemy();
 
-            while (isGameActive == true)
+            while (isGameActive == true && isEnemyAlive == true)
             {
                 Console.SetCursorPosition(0, 0);
                 PlayerInput();
                 DrawMap();
+                ShowHUD();
                 DrawPlayer();
                 DrawEnemy();
                 Thread.Sleep(100);
             }
 
-            if (playerHealth == 0)
+            while (isGameActive == true && isEnemyAlive == false)
             {
-                isGameActive = false;
+                Console.SetCursorPosition(0, 0);
+                PlayerInput();
+                DrawMap();
+                ShowHUD();
+                DrawPlayer();
+                Thread.Sleep(100);
             }
 
             if (isGameActive == false)
@@ -155,7 +162,21 @@ namespace GeorgiaDavid_FirstPlayable
                 playerPosY = 12;
             }
 
-            MoveTowardsPlayer();
+            if(playerPosX == enemyPosX && playerPosY == enemyPosY)
+            {
+                enemyHealth = enemyHealth - 1;
+                enemyPosX = 30;
+                enemyPosY = 1;
+            }
+
+            if(enemyHealth <= 0)
+            {
+                isEnemyAlive = false;
+            }
+            else
+            {
+                MoveTowardsPlayer();
+            }   
         }
 
         static void MoveTowardsPlayer()
@@ -179,6 +200,19 @@ namespace GeorgiaDavid_FirstPlayable
             {
                 enemyPosY -= 1;
             }
+
+            if (enemyPosX == playerPosX && enemyPosY == playerPosY)
+            {
+                playerHealth = playerHealth - 1;
+                playerPosX = 1;
+                playerPosY = 1;
+            }
+
+            if (playerHealth <= 0)
+            {
+                isGameActive = false;
+            }
+
         }
 
         static void ShowHUD()
@@ -190,6 +224,7 @@ namespace GeorgiaDavid_FirstPlayable
         static void GameOver()
         {
             Console.Clear();
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Game Over");
         }
     }
