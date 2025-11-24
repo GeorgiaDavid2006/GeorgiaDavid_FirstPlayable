@@ -15,13 +15,13 @@ namespace GeorgiaDavid_FirstPlayable
         static int horizontalInput;
         static int verticalInput;
 
-        static int playerPosX;
-        static int playerPosY;
+        static int playerPosX = 1;
+        static int playerPosY = 1;
 
         static int enemyPosX;
         static int enemyPosY;
 
-        static bool isGameActive;
+        static bool isGameActive = true;
 
         static void Main(string[] args)
         {
@@ -30,6 +30,13 @@ namespace GeorgiaDavid_FirstPlayable
             map = File.ReadAllLines(path);
 
             DrawMap();
+            DrawPlayer();
+
+            while (isGameActive == true)
+            {
+                PlayerInput();
+                DrawPlayer();
+            }
         }
         static void DrawMap()
         {
@@ -41,7 +48,7 @@ namespace GeorgiaDavid_FirstPlayable
                 }
                 else
                 {
-                    Console.Write("-");
+                    Console.Write("═");
                 }
             }
 
@@ -49,12 +56,12 @@ namespace GeorgiaDavid_FirstPlayable
 
             for (int row = 0; row < map.GetLength(0); row++)
             {
-                Console.Write("|");
+                Console.Write("║");
                 for (int column = 0; column < map[0].Length; column++)
                 {
                     Console.Write(map[row][column]);
                 }
-                Console.Write("|");
+                Console.Write("║");
                 Console.WriteLine();
             }
             for (int border = 0; border < map[0].Length + 2; border++)
@@ -65,7 +72,7 @@ namespace GeorgiaDavid_FirstPlayable
                 }
                 else
                 {
-                    Console.Write("-");
+                    Console.Write("═");
                 }
             }
             Console.WriteLine();
@@ -103,6 +110,11 @@ namespace GeorgiaDavid_FirstPlayable
             if (inputKey.Key == ConsoleKey.W) playerPosY -= 1;
 
             if (inputKey.Key == ConsoleKey.S) playerPosY += 1;
+        }
+
+        static void ShowHUD()
+        {
+
         }
     }
 }
