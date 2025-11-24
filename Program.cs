@@ -16,6 +16,8 @@ namespace GeorgiaDavid_FirstPlayable
         static int playerPosX = 1;
         static int playerPosY = 1;
 
+        static int[] goldPositions;
+
         static int gold;
 
         static int minGoldPosX = 1;
@@ -43,7 +45,7 @@ namespace GeorgiaDavid_FirstPlayable
             ShowHUD();
             DrawPlayer();
             DrawEnemy();
-            DrawGold(5);
+            SpawnGold(5);
 
             while (isGameActive == true && isEnemyAlive == true)
             {
@@ -63,6 +65,7 @@ namespace GeorgiaDavid_FirstPlayable
                 DrawMap();
                 ShowHUD();
                 DrawPlayer();
+                DrawGold();
                 Thread.Sleep(100);
             }
 
@@ -222,6 +225,25 @@ namespace GeorgiaDavid_FirstPlayable
                 isGameActive = false;
             }
 
+            if (enemyPosX <= 1)
+            {
+                enemyPosX = 1;
+            }
+
+            if (enemyPosY <= 1)
+            {
+                enemyPosY = 1;
+            }
+
+            if (enemyPosX >= 30)
+            {
+                enemyPosX = 30;
+            }
+
+            if (enemyPosY >= 12)
+            {
+                enemyPosY = 12;
+            }
         }
 
         static void ShowHUD()
@@ -231,20 +253,22 @@ namespace GeorgiaDavid_FirstPlayable
             Console.WriteLine("Enemy Health: " + enemyHealth);
         }
 
-        static void DrawGold(int amount)
+        static void SpawnGold(int amount)
         {
-            for(int g = 0; g < amount; g++)
+            for (int g = 0; g < amount; g++)
             {
                 Random randomPos = new Random();
 
                 int randomPosX = randomPos.Next(minGoldPosX, maxGoldPosX);
                 int randomPosY = randomPos.Next(minGoldPosY, maxGoldPosY);
 
-                Console.CursorVisible = false;
-                Console.SetCursorPosition(randomPosX, randomPosY);
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("#");
+                
             }
+        }
+
+        static void DrawGold()
+        {
+              
         }
 
         static void GameOver()
