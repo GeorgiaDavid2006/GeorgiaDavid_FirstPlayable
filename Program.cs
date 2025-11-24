@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.IO;
 using System.Data;
@@ -14,9 +15,6 @@ namespace GeorgiaDavid_FirstPlayable
 
         static int playerPosX = 1;
         static int playerPosY = 1;
-
-        static int oldPlayerPosX;
-        static int oldPlayerPosY;
 
         static int enemyPosX = 10;
         static int enemyPosY = 1;
@@ -33,18 +31,34 @@ namespace GeorgiaDavid_FirstPlayable
             map = File.ReadAllLines(path);
 
             DrawMap();
+            ShowHUD();
             DrawPlayer();
             DrawEnemy();
 
             while (isGameActive == true)
             {
+                Console.SetCursorPosition(0, 0);
                 PlayerInput();
+                DrawMap();
                 DrawPlayer();
                 DrawEnemy();
+                Thread.Sleep(100);
+            }
+
+            if (playerHealth == 0)
+            {
+                isGameActive = false;
+            }
+
+            if (isGameActive == false)
+            {
+                GameOver();
             }
         }
         static void DrawMap()
         {
+            Console.ForegroundColor = ConsoleColor.White;
+
             for (int border = 0; border < map[0].Length + 2; border++)
             {
                 if (border == 0 || border == map[0].Length + 1)
@@ -83,11 +97,7 @@ namespace GeorgiaDavid_FirstPlayable
             Console.WriteLine();
 
         }
-        static void RestoreTile()
-        {
-
-        }
-
+ 
         static void DrawPlayer()
         {
             Console.CursorVisible = false;
@@ -105,8 +115,6 @@ namespace GeorgiaDavid_FirstPlayable
 
         static void PlayerInput()
         {
-            oldPlayerPosX = playerPosX;
-            oldPlayerPosY = playerPosY;
 
             if (!Console.KeyAvailable)
             {
@@ -116,14 +124,18 @@ namespace GeorgiaDavid_FirstPlayable
             ConsoleKeyInfo inputKey = Console.ReadKey(true);
 
             if (inputKey.Key == ConsoleKey.A) playerPosX -= 1;
+            
 
             if (inputKey.Key == ConsoleKey.D) playerPosX += 1;
+            
 
             if (inputKey.Key == ConsoleKey.W) playerPosY -= 1;
+            
 
             if (inputKey.Key == ConsoleKey.S) playerPosY += 1;
+            
 
-            if(playerPosX <= 1)
+            if (playerPosX <= 1)
             {
                 playerPosX = 1;
             }
@@ -141,6 +153,31 @@ namespace GeorgiaDavid_FirstPlayable
             if (playerPosY >= 12)
             {
                 playerPosY = 12;
+            }
+
+            MoveTowardsPlayer();
+        }
+
+        static void MoveTowardsPlayer()
+        {
+            if(enemyPosX < playerPosX)
+            {
+                enemyPosX += 1;
+            }
+
+            else if (enemyPosX > playerPosX)
+            {
+                enemyPosX -= 1;
+            }
+
+            else if (enemyPosY < playerPosY)
+            {
+                enemyPosY += 1;
+            }
+
+            else if (enemyPosY > playerPosY)
+            {
+                enemyPosY -= 1;
             }
         }
 
