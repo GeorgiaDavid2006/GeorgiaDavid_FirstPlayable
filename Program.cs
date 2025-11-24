@@ -81,6 +81,7 @@ namespace GeorgiaDavid_FirstPlayable
 
         static void DrawPlayer()
         {
+            Console.CursorVisible = false;
             Console.SetCursorPosition(playerPosX, playerPosY);
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("O");
@@ -110,6 +111,26 @@ namespace GeorgiaDavid_FirstPlayable
             if (inputKey.Key == ConsoleKey.W) playerPosY -= 1;
 
             if (inputKey.Key == ConsoleKey.S) playerPosY += 1;
+
+            if(playerPosX <= 1)
+            {
+                playerPosX = 1;
+            }
+
+            if (playerPosY <= 1)
+            {
+                playerPosY = 1;
+            }
+
+            if (playerPosX >= 30)
+            {
+                playerPosX = 30;
+            }
+
+            if (playerPosY >= 12)
+            {
+                playerPosY = 12;
+            }
         }
 
         static void ShowHUD()
