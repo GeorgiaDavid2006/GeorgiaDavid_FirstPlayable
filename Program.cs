@@ -12,14 +12,17 @@ namespace GeorgiaDavid_FirstPlayable
     {
         static string[] map;
 
-        static int horizontalInput;
-        static int verticalInput;
-
         static int playerPosX = 1;
         static int playerPosY = 1;
 
+        static int oldPlayerPosX;
+        static int oldPlayerPosY;
+
         static int enemyPosX = 10;
         static int enemyPosY = 1;
+
+        static int playerHealth = 5;
+        static int enemyHealth = 5;
 
         static bool isGameActive = true;
 
@@ -80,6 +83,10 @@ namespace GeorgiaDavid_FirstPlayable
             Console.WriteLine();
 
         }
+        static void RestoreTile()
+        {
+
+        }
 
         static void DrawPlayer()
         {
@@ -98,6 +105,8 @@ namespace GeorgiaDavid_FirstPlayable
 
         static void PlayerInput()
         {
+            oldPlayerPosX = playerPosX;
+            oldPlayerPosY = playerPosY;
 
             if (!Console.KeyAvailable)
             {
@@ -137,7 +146,14 @@ namespace GeorgiaDavid_FirstPlayable
 
         static void ShowHUD()
         {
+            Console.WriteLine("Player Health: " + playerHealth);
+            Console.WriteLine("Enemy Health: " + enemyHealth);
+        }
 
+        static void GameOver()
+        {
+            Console.Clear();
+            Console.WriteLine("Game Over");
         }
     }
 }
