@@ -190,7 +190,7 @@ namespace GeorgiaDavid_FirstPlayable
             else
             {
                 MoveTowardsPlayer();
-            }   
+            }
         }
 
         static void MoveTowardsPlayer()
