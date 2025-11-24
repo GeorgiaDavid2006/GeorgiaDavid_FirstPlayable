@@ -18,6 +18,12 @@ namespace GeorgiaDavid_FirstPlayable
 
         static int gold;
 
+        static int minGoldPosX = 1;
+        static int maxGoldPosX = 30;
+
+        static int minGoldPosY = 1;
+        static int maxGoldPosY = 12;
+
         static int enemyPosX = 30;
         static int enemyPosY = 1;
 
@@ -37,6 +43,7 @@ namespace GeorgiaDavid_FirstPlayable
             ShowHUD();
             DrawPlayer();
             DrawEnemy();
+            DrawGold(5);
 
             while (isGameActive == true && isEnemyAlive == true)
             {
@@ -164,7 +171,7 @@ namespace GeorgiaDavid_FirstPlayable
                 playerPosY = 12;
             }
 
-            if(playerPosX == enemyPosX && playerPosY == enemyPosY)
+            if(playerPosX == enemyPosX && playerPosY == enemyPosY && isEnemyAlive)
             {
                 enemyHealth = enemyHealth - 1;
                 enemyPosX = 30;
@@ -222,6 +229,22 @@ namespace GeorgiaDavid_FirstPlayable
             Console.WriteLine("Player Health: " + playerHealth);
             Console.WriteLine("Gold: " + gold);
             Console.WriteLine("Enemy Health: " + enemyHealth);
+        }
+
+        static void DrawGold(int amount)
+        {
+            for(int g = 0; g < amount; g++)
+            {
+                Random randomPos = new Random();
+
+                int randomPosX = randomPos.Next(minGoldPosX, maxGoldPosX);
+                int randomPosY = randomPos.Next(minGoldPosY, maxGoldPosY);
+
+                Console.CursorVisible = false;
+                Console.SetCursorPosition(randomPosX, randomPosY);
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("#");
+            }
         }
 
         static void GameOver()
