@@ -18,8 +18,8 @@ namespace GeorgiaDavid_FirstPlayable
         static int playerPosX = 1;
         static int playerPosY = 1;
 
-        static int enemyPosX;
-        static int enemyPosY;
+        static int enemyPosX = 10;
+        static int enemyPosY = 1;
 
         static bool isGameActive = true;
 
@@ -31,11 +31,13 @@ namespace GeorgiaDavid_FirstPlayable
 
             DrawMap();
             DrawPlayer();
+            DrawEnemy();
 
             while (isGameActive == true)
             {
                 PlayerInput();
                 DrawPlayer();
+                DrawEnemy();
             }
         }
         static void DrawMap()
