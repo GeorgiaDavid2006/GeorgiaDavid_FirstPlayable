@@ -16,6 +16,8 @@ namespace GeorgiaDavid_FirstPlayable
         static int playerPosX = 1;
         static int playerPosY = 1;
 
+        static int gold;
+
         static int enemyPosX = 30;
         static int enemyPosY = 1;
 
@@ -52,6 +54,7 @@ namespace GeorgiaDavid_FirstPlayable
                 Console.SetCursorPosition(0, 0);
                 PlayerInput();
                 DrawMap();
+                ShowHUD();
                 DrawPlayer();
                 Thread.Sleep(100);
             }
@@ -217,6 +220,7 @@ namespace GeorgiaDavid_FirstPlayable
         static void ShowHUD()
         {
             Console.WriteLine("Player Health: " + playerHealth);
+            Console.WriteLine("Gold: " + gold);
             Console.WriteLine("Enemy Health: " + enemyHealth);
         }
 
