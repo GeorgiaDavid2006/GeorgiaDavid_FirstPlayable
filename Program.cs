@@ -191,6 +191,31 @@ namespace GeorgiaDavid_FirstPlayable
             {
                 MoveTowardsPlayer();
             }
+
+            if(playerPosX == goldPositions[0].Item1 && playerPosY == goldPositions[0].Item2)
+            {
+                gold = gold + 1;
+            }
+
+            if (playerPosX == goldPositions[1].Item1 && playerPosY == goldPositions[1].Item2)
+            {
+                gold = gold + 1;
+            }
+
+            if (playerPosX == goldPositions[2].Item1 && playerPosY == goldPositions[2].Item2)
+            {
+                gold = gold + 1;
+            }
+
+            if (playerPosX == goldPositions[3].Item1 && playerPosY == goldPositions[3].Item2)
+            {
+                gold = gold + 1;
+            }
+
+            if (playerPosX == goldPositions[4].Item1 && playerPosY == goldPositions[4].Item2)
+            {
+                gold = gold + 1;
+            }
         }
 
         static void MoveTowardsPlayer()

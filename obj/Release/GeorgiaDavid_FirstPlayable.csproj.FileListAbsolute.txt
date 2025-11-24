@@ -1,0 +1,8 @@
+C:\Users\W0512995\source\repos\GeorgiaDavid_FirstPlayable\GeorgiaDavid_FirstPlayable\bin\Release\Map.txt
+C:\Users\W0512995\source\repos\GeorgiaDavid_FirstPlayable\GeorgiaDavid_FirstPlayable\bin\Release\GeorgiaDavid_FirstPlayable.exe.config
+C:\Users\W0512995\source\repos\GeorgiaDavid_FirstPlayable\GeorgiaDavid_FirstPlayable\bin\Release\GeorgiaDavid_FirstPlayable.exe
+C:\Users\W0512995\source\repos\GeorgiaDavid_FirstPlayable\GeorgiaDavid_FirstPlayable\bin\Release\GeorgiaDavid_FirstPlayable.pdb
+C:\Users\W0512995\source\repos\GeorgiaDavid_FirstPlayable\GeorgiaDavid_FirstPlayable\obj\Release\GeorgiaDavid_FirstPlayable.csproj.AssemblyReference.cache
+C:\Users\W0512995\source\repos\GeorgiaDavid_FirstPlayable\GeorgiaDavid_FirstPlayable\obj\Release\GeorgiaDavid_FirstPlayable.csproj.CoreCompileInputs.cache
+C:\Users\W0512995\source\repos\GeorgiaDavid_FirstPlayable\GeorgiaDavid_FirstPlayable\obj\Release\GeorgiaDavid_FirstPlayable.exe
+C:\Users\W0512995\source\repos\GeorgiaDavid_FirstPlayable\GeorgiaDavid_FirstPlayable\obj\Release\GeorgiaDavid_FirstPlayable.pdb
